@@ -1,0 +1,103 @@
+//.animate-scaleIn {
+//  animation: scaleIn 0.35s ease-in-out;
+//}
+
+@keyframes scaleIn {
+  0%{
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50%{
+    opacity: 0.3;
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.custom-select{
+  &__control {
+    background-color: transparent!important;
+    border: none!important;
+    border-radius: 0!important;
+    border-bottom: 1px solid #66676e!important;
+    //border-bottom: none !important;
+    box-shadow: none!important;
+
+    &--menu-is-open {
+      background-color: #999aa5!important; //цвет фона в инпуте
+    }
+  }
+
+  &__value-contianer{
+    padding: 0 !important;
+    cursor: text !important;
+  }
+
+  &__input-container{
+    color: #e42c64 !important; //цвет текста инпута
+  }
+
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__indicators {
+    cursor: pointer !important;
+  }
+
+  &__indicator {
+    color: #66676e !important;
+
+    &:hover{
+      color: #999aa5 !important;
+    }
+  }
+
+  //сами бейджи
+  &__multi-value {
+    background-color: #65656e !important;
+    border-radius: 0.5rem !important;
+  }
+
+  &__multi-value__label {
+    font-size: 80% !important;
+    color: rgba(white, 0.7) !important;
+  }
+
+  &__multi-value__remove {
+    color: rgba(white, 0.8) !important;
+
+    &:hover{
+      color: white !important;
+      background-color: transparent!important;
+    }
+  }
+
+  //выпадающее меню
+  &__menu {
+    background-color: #292a2e !important;
+    color: rgba(white, 0.6) !important;
+    animation: scaleIn 0.35s ease-in-out;
+  }
+
+  &__option {
+    cursor: pointer !important;
+    &--is-focused {
+      background-color: lighten(#65656e, 8%) !important;
+    }
+  }
+
+  &-container {
+    > div {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    &:hover, &--menu-is-open{
+      background-color: #ced4da;
+    }
+  }
+}

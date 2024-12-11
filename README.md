@@ -1,3 +1,9 @@
+https://www.youtube.com/watch?v=wNlQ5jM0vrw&t=800s 
+
+npm i node-sass
+Устанавливали сасс
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

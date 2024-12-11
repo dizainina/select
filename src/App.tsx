@@ -1,24 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
+// пример множественного селекта
 import './App.css';
-
+import Select, {OnChangeValue} from 'react-select'
+import {useState} from "react";
+import {IOption} from "./app.interface";
+import makeAnimated from 'react-select/animated';
+// вариант только для множественного селекта
+const animatedComponents = makeAnimated();
+const options:IOption[] = [{
+    value: "south-korea",
+    label: "Южная Корея"
+    },
+    {
+        value: "ukraine",
+        label: "Украина"
+    },
+    {
+        value: "russia",
+        label: "Россия"
+    },
+    {
+        value: "canada",
+        label: "Канада"
+    },
+    {
+        value: "japan",
+        label: "Япония"
+    }
+]
 function App() {
+    const [currentCountries, setCountCountries] = useState(['south-korea','japan'])
+
+    const onChangeCountry = (newValue: OnChangeValue<IOption, boolean>) => {
+        setCountCountries((newValue as IOption[]).map(v => v.value))
+    }
+    const getValue = () => {
+        return currentCountries
+            ? options.filter(c => currentCountries.indexOf(c.value) >= 0)
+            : []
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Выбрать страну:</h1>
+        <Select
+            classNamePrefix='custom-select' //дает возмжность добавить свои стили
+            onChange={onChangeCountry}
+            value={getValue()}
+            options={options}
+            placeholder='Выберите страну'
+            isMulti
+            components={animatedComponents}
+        />
     </div>
   );
 }
